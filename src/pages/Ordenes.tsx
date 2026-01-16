@@ -56,8 +56,6 @@ export function Ordenes() {
   const [itemsPerPage, setItemsPerPage] = useState(20)
   const [sortField, setSortField] = useState<string>('fecha_pedido')
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc')
-  const [selectedOrden, setSelectedOrden] = useState<any>(null)
-  const [isDetailModalOpen, setIsDetailModalOpen] = useState(false)
   const [deleteDialog, setDeleteDialog] = useState<{ isOpen: boolean; id: string }>({ isOpen: false, id: '' })
   const [isDeleting, setIsDeleting] = useState(false)
   
@@ -347,8 +345,8 @@ export function Ordenes() {
     setEditingOrden(null)
   }
 
-  // Función para ordenar
-  const handleSort = (field: string) => {
+  // Función para ordenar (deshabilitada - usar ordenamiento de Supabase)
+  /* const handleSort = (field: string) => {
     if (sortField === field) {
       setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')
     } else {
@@ -366,7 +364,7 @@ export function Ordenes() {
     ) : (
       <ChevronDown className="w-4 h-4 inline ml-1" />
     )
-  }
+  } */
 
   // Filtros rápidos de fecha
   const aplicarFiltroRapido = (dias: number) => {
