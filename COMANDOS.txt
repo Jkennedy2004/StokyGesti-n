@@ -1,0 +1,70 @@
+====================================
+  COMANDOS DE INSTALACIÓN
+====================================
+
+OPCIÓN 1: Instalación Automática (Recomendado)
+----------------------------------------------
+powershell -ExecutionPolicy Bypass -File install.ps1
+
+
+OPCIÓN 2: Instalación Manual
+-----------------------------
+
+1. Instalar dependencias:
+   npm install
+
+2. Crear archivo .env con tus credenciales de Supabase:
+   (Copia .env.example a .env y edítalo)
+
+3. Configurar Supabase:
+   - Ve a https://supabase.com
+   - Crea un proyecto
+   - Copia URL y API Key a .env
+   - Ejecuta supabase-schema.sql en SQL Editor
+
+4. Iniciar el proyecto:
+   npm run dev
+
+5. Abrir en navegador:
+   http://localhost:5173
+
+
+COMANDOS ÚTILES
+---------------
+
+Iniciar servidor de desarrollo:
+npm run dev
+
+Construir para producción:
+npm run build
+
+Vista previa de la build:
+npm run preview
+
+Ejecutar linter:
+npm run lint
+
+
+SOLUCIÓN DE PROBLEMAS
+---------------------
+
+Si hay errores al instalar:
+1. Verifica tu conexión a internet
+2. Ejecuta: npm cache clean --force
+3. Vuelve a ejecutar: npm install
+
+Si no arranca el servidor:
+1. Verifica que el archivo .env existe
+2. Verifica que las credenciales son correctas
+3. Reinicia la terminal y vuelve a ejecutar
+
+
+📚 MÁS INFORMACIÓN
+------------------
+- README.md - Documentación principal
+- INSTALLATION.md - Guía detallada de instalación
+- ESTRUCTURA.md - Estructura del proyecto
+- COMPLETADO.md - Lista de funcionalidades
+
+
+¡Éxito! 🚀

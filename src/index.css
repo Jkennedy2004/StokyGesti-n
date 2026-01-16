@@ -1,0 +1,226 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    border-color: rgb(229, 231, 235);
+  }
+  body {
+    background-color: white;
+    color: rgb(17, 24, 39);
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: colors 200ms;
+  }
+  
+  .btn:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.5);
+  }
+  
+  .btn:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  
+  .btn-primary {
+    background-color: rgb(14, 165, 233);
+    color: white;
+  }
+  
+  .btn-primary:hover {
+    background-color: rgb(3, 105, 161);
+  }
+  
+  .btn-secondary {
+    background-color: rgb(243, 244, 246);
+    color: rgb(17, 24, 39);
+  }
+  
+  .btn-secondary:hover {
+    background-color: rgb(229, 231, 235);
+  }
+  
+  .btn-outline {
+    border: 1px solid rgb(229, 231, 235);
+    background-color: transparent;
+  }
+  
+  .btn-outline:hover {
+    background-color: rgb(243, 244, 246);
+  }
+  
+  .btn-ghost {
+    background-color: transparent;
+  }
+  
+  .btn-ghost:hover {
+    background-color: rgb(243, 244, 246);
+  }
+  
+  .btn-destructive {
+    background-color: rgb(239, 68, 68);
+    color: white;
+  }
+  
+  .btn-destructive:hover {
+    background-color: rgb(220, 38, 38);
+  }
+  
+  .input {
+    display: flex;
+    height: 2.5rem;
+    width: 100%;
+    border-radius: 0.375rem;
+    border: 1px solid rgb(229, 231, 235);
+    background-color: white;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+  }
+  
+  .input:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.5);
+  }
+  
+  .input:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+  
+  .input::placeholder {
+    color: rgb(156, 163, 175);
+  }
+  
+  .card {
+    border-radius: 0.5rem;
+    border: 1px solid rgb(229, 231, 235);
+    background-color: white;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
+  
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 9999px;
+    border: 1px solid transparent;
+    padding: 0.125rem 0.625rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    transition: colors 200ms;
+  }
+  
+  .badge:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.5);
+  }
+  
+  .badge-primary {
+    background-color: rgb(14, 165, 233);
+    color: white;
+  }
+  
+  .badge-primary:hover {
+    background-color: rgb(3, 105, 161);
+  }
+  
+  .badge-secondary {
+    background-color: rgb(243, 244, 246);
+    color: rgb(17, 24, 39);
+  }
+  
+  .badge-secondary:hover {
+    background-color: rgb(229, 231, 235);
+  }
+  
+  .badge-outline {
+    border: 1px solid rgb(229, 231, 235);
+    color: rgb(17, 24, 39);
+  }
+  
+  .badge-success {
+    background-color: rgb(34, 197, 94);
+    color: white;
+  }
+  
+  .badge-success:hover {
+    background-color: rgb(22, 163, 74);
+  }
+  
+  .badge-warning {
+    background-color: rgb(234, 179, 8);
+    color: white;
+  }
+  
+  .badge-warning:hover {
+    background-color: rgb(202, 138, 4);
+  }
+  
+  .badge-danger {
+    background-color: rgb(239, 68, 68);
+    color: white;
+  }
+  
+  .badge-danger:hover {
+    background-color: rgb(220, 38, 38);
+  }
+}
+
+/* Scrollbar personalizado */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgb(243, 244, 246);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(209, 213, 219);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(156, 163, 175);
+}
+
+/* Animaciones */
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
