@@ -5,7 +5,7 @@ import { Input } from '../components/ui/Input'
 import { Select } from '../components/ui/Select'
 import { Modal } from '../components/ui/Modal'
 import { Badge } from '../components/ui/Badge'
-import { Plus, Pencil, Trash2, Clock, CheckCircle, Package, AlertCircle, DollarSign, ClipboardList, Search, ChevronUp, ChevronDown, Calendar } from 'lucide-react'
+import { Plus, Pencil, Trash2, Clock, CheckCircle, Package, AlertCircle, DollarSign, ClipboardList, Search, Calendar } from 'lucide-react'
 import { ConfirmDialog } from '../components/ui/ConfirmDialog'
 import { EmptyState } from '../components/ui/EmptyState'
 import { Pagination } from '../components/ui/Pagination'
@@ -54,8 +54,6 @@ export function Ordenes() {
   const [fechaHasta, setFechaHasta] = useState<string>('')
   const [currentPage, setCurrentPage] = useState(1)
   const [itemsPerPage, setItemsPerPage] = useState(20)
-  const [sortField, setSortField] = useState<string>('fecha_pedido')
-  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc')
   const [deleteDialog, setDeleteDialog] = useState<{ isOpen: boolean; id: string }>({ isOpen: false, id: '' })
   const [isDeleting, setIsDeleting] = useState(false)
   
@@ -394,18 +392,12 @@ export function Ordenes() {
     return matchesEstado && matchesSearch && matchesFechaDesde && matchesFechaHasta
   })
 
-  // Ordenar órdenes
+  // Ordenar órdenes por fecha_pedido descendente (más recientes primero)
   const ordenesOrdenadas = [...ordenesFiltradas].sort((a, b) => {
-    let aValue: any = a[sortField as keyof Orden]
-    let bValue: any = b[sortField as keyof Orden]
-
-    if (typeof aValue === 'string') {
-      aValue = aValue.toLowerCase()
-      bValue = bValue.toLowerCase()
-    }
-
-    if (aValue < bValue) return sortOrder === 'asc' ? -1 : 1
-    if (aValue > bValue) return sortOrder === 'asc' ? 1 : -1
+    const aValue = a.fecha_pedido
+    const bValue = b.fecha_pedido
+    if (aValue < bValue) return 1
+    if (aValue > bValue) return -1
     return 0
   })
 
